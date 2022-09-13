@@ -1,12 +1,12 @@
 import "./setup";
 
 import { app } from "./app";
-import { MongoDB } from "../database/mongo.database";
+import { connect } from "../database/mongo.database";
 
 const port = process.env.PORT;
 
 const server = app.listen(port, async () => {
-  await new MongoDB().connect();
+  await connect();
 
   process.on("SIGINT", async () => {
     //await isicMongo.close();
